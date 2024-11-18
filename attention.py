@@ -60,11 +60,13 @@ class Graph:
             scores = np.exp(scores)
             scores = scores / np.sum(scores)
             print("Scores Softmax: ", scores)
+            print("Longitud: ", len(scores))
             # gather the appropriate values with a weigthed sum
             values = [m.value() for m in inputs]
             print("Values: ", values)
             update = sum([s * v for s,v in zip(scores, values)])
-            print("Sum update:")
+            print("Sum update:", update)
+            print("Longitud", len(update))
             updates.append(update)
         
         for n, u in zip(self.nodes,updates):
